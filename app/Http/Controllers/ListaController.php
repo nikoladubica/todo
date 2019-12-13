@@ -46,6 +46,15 @@ class ListaController extends Controller
         return back();
     }
 
+    public function obrisi($id)
+    {
+
+        $beleska = Lista::where('id',$id)->delete();
+        
+        return redirect('/')->with('status', 'Uspesno obrisano');
+
+    }
+
     /**
      * Display the specified resource.
      *

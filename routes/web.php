@@ -21,3 +21,6 @@ Route::post('/obaveza/unos', 'ListaController@store');
 
 // Prikaz
 Route::get('/obaveza/prikaz', 'ListaController@show');
+
+// Brisanje
+Route::get('/obaveza/obrisi/{id}', 'ListaController@obrisi');

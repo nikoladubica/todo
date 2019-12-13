@@ -65,22 +65,28 @@
             </div>
         </main>
 
+        <hr>
+
         <h5 class="mt-5">Your tasks</h5>
-        <table class="table table-striped border-0">
-            <thead class="thead-dark">
-                <th>Title</th>
-                <th>Description</th>
-                <th></th>
-            </thead>
-            @php($list = App\Lista::all())
-            @foreach ($list as $liste)
-            <tr>
-                <th>{{$liste['naslov']}}</th>
-                <td>{{$liste['opis']}}</td>
-                <td align="right"><button class="btn btn-danger">Delete</button></td>
-            </tr>
-            @endforeach
-        </table>
+
+        <div class="container-fluid">
+            <div class="row">
+                @php($list = App\Lista::all())
+                @foreach ($list as $liste)
+
+                <div class="col-md-4 col-sm-6 my-3">
+                    <div class="card">
+                        <h5 class="card-header">{{$liste['naslov']}}</h5>
+                        <div class="card-body">
+                            <p class="card-text">{{$liste['opis']}}</p>
+                            <a href="/obaveza/obrisi/{{$liste->id}}" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+
+                @endforeach
+            </div>
+        </div>
 
     </div>
 </body>
